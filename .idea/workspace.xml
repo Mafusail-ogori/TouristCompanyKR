@@ -4,39 +4,52 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4520111-a99f-4295-9256-28ee56814f72" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/command/Command.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/command/DeleteAccountCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/command/ExitCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/command/GenerateTicketsCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/command/LogInCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/command/LogOutCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/command/QuizCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/command/ShowAllPorposalsCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/command/SignUpCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/command/SortByPeriodCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/command/SortByPriceCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/command/SortByRatingCommand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/data/TouristAttractionsData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/data/UserData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/graphicsText/Graphics.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/touristAtraction/TicketType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/touristAtraction/TouristTicket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/touristAtraction/TouristTicketTitle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/touristAtraction/TransportationType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/user/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/userMenu/AfterMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/userMenu/Menu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/userMenu/MenuCaller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/userMenu/SortMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/userMenu/StartMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/commandTests/GenerateCommandTest.java" afterDir="false" />
+    <list default="true" id="f4520111-a99f-4295-9256-28ee56814f72" name="Changes" comment="ComplexLab">
+      <change afterPath="$PROJECT_DIR$/src/main/java/command/FileReadingCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/signUpRecords.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/commandTests/DeleteAccountCommandTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/commandTests/LogInCommandTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/commandTests/LogOutCommandTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/commandTests/QuizCommandTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/commandTests/ShowAllPorposalsCommandTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/commandTests/SignUpCommandTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/commandTests/SortByPeriodCommandTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/commandTests/SortByPriceCommandTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/commandTests/SortByRatingCommandTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/touristAttractionDataFunctionTests/GenerateTicketsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/touristAttractionDataFunctionTests/IsSameTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/touristAttractionDataFunctionTests/IsSameTransportTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/touristAttractionDataFunctionTests/QuestionerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/touristAttractionDataFunctionTests/SortByPeriodTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/touristAttractionDataFunctionTests/SortByPriceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/touristAttractionDataFunctionTests/SortByRatingTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/userDataFunctionsTests/DeleteAccountTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/userDataFunctionsTests/FindSameNickNameTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/userDataFunctionsTests/FindSamePasswordTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/userDataFunctionsTests/FindUserTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/userDataFunctionsTests/LogInTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/userDataFunctionsTests/SignUpTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/userMenu/SortMenuTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/DeleteAccountCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/DeleteAccountCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/GenerateTicketsCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/GenerateTicketsCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/LogInCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/LogInCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/command/SignUpCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/command/SignUpCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/TouristAttractionsData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/TouristAttractionsData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/data/UserData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/UserData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/touristAtraction/TicketType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/touristAttraction/TicketType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/touristAtraction/TouristTicket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/touristAttraction/TouristTicket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/touristAtraction/TouristTicketTitle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/touristAttraction/TouristTicketTitle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/touristAtraction/TransportationType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/touristAttraction/TransportationType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/user/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/user/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/userMenu/AfterMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/userMenu/AfterMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/userMenu/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/userMenu/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/userMenu/MenuCaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/userMenu/MenuCaller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/userMenu/SortMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/userMenu/SortMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/userMenu/StartMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/userMenu/StartMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/commandTests/GenerateCommandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/commandTests/GenerateCommandTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,10 +83,12 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Danylo/PP labs/untitled/src/main/java/command",
+    "last_opened_file_path": "C:/Users/Danylo/superComplexLab",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -81,6 +96,89 @@
       <recent name="C:\Users\Danylo\PP labs\untitled\src\main\java\command" />
       <recent name="C:\Users\Danylo\PP labs\untitled" />
     </key>
+  </component>
+  <component name="RunManager" selected="JUnit.All in ComplexLabsWithTests">
+    <configuration name="AfterMenuTest.startMenuTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ComplexLabsWithTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="userMenu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="userMenu" />
+      <option name="MAIN_CLASS_NAME" value="userMenu.AfterMenuTest" />
+      <option name="METHOD_NAME" value="startMenuTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in ComplexLabsWithTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ComplexLabsWithTests" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QuizCommandTest.quizCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ComplexLabsWithTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="commandTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="commandTests" />
+      <option name="MAIN_CLASS_NAME" value="commandTests.QuizCommandTest" />
+      <option name="METHOD_NAME" value="quizCommandTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShowAllPorposalsCommandTest.showAllPorposalsCommandTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ComplexLabsWithTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="commandTests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="commandTests" />
+      <option name="MAIN_CLASS_NAME" value="commandTests.ShowAllPorposalsCommandTest" />
+      <option name="METHOD_NAME" value="showAllPorposalsCommandTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SortMenuTest.sortMenuTest1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ComplexLabsWithTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="userMenu.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="userMenu" />
+      <option name="MAIN_CLASS_NAME" value="userMenu.SortMenuTest" />
+      <option name="METHOD_NAME" value="sortMenuTest1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in ComplexLabsWithTests" />
+        <item itemvalue="JUnit.QuizCommandTest.quizCommandTest" />
+        <item itemvalue="JUnit.ShowAllPorposalsCommandTest.showAllPorposalsCommandTest" />
+        <item itemvalue="JUnit.SortMenuTest.sortMenuTest1" />
+        <item itemvalue="JUnit.AfterMenuTest.startMenuTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -90,8 +188,43 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667070492744</updated>
-      <workItem from="1667070494087" duration="1411000" />
+      <workItem from="1667070494087" duration="1541000" />
+      <workItem from="1667072645649" duration="377000" />
+      <workItem from="1667139638525" duration="62000" />
+      <workItem from="1667313049218" duration="685000" />
+      <workItem from="1667325266890" duration="5790000" />
+      <workItem from="1667379771495" duration="45000" />
+      <workItem from="1667380025943" duration="927000" />
+      <workItem from="1667414297910" duration="6115000" />
+      <workItem from="1667496645366" duration="4234000" />
+      <workItem from="1667546043393" duration="213000" />
+      <workItem from="1667569080123" duration="156000" />
+      <workItem from="1667665890738" duration="3486000" />
+      <workItem from="1667675175212" duration="9630000" />
+      <workItem from="1667690440702" duration="842000" />
+      <workItem from="1667733696806" duration="9441000" />
+      <workItem from="1667844167866" duration="69000" />
+      <workItem from="1667855485259" duration="29000" />
+      <workItem from="1667988454710" duration="3699000" />
+      <workItem from="1668003330839" duration="18984000" />
+      <workItem from="1668037030360" duration="140000" />
+      <workItem from="1668086103535" duration="3083000" />
+      <workItem from="1668115222897" duration="17000" />
+      <workItem from="1668188793633" duration="1111000" />
+      <workItem from="1668367470845" duration="654000" />
+      <workItem from="1668373419467" duration="827000" />
+      <workItem from="1668386658729" duration="2000" />
+      <workItem from="1668427652177" duration="13749000" />
+      <workItem from="1668550205488" duration="746000" />
     </task>
+    <task id="LOCAL-00001" summary="ComplexLab">
+      <created>1667071978258</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667071978258</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,5 +240,12 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ComplexLab" />
+    <option name="LAST_COMMIT_MESSAGE" value="ComplexLab" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/untitled$All_in_ComplexLabsWithTests.ic" NAME="All in ComplexLabsWithTests Coverage Results" MODIFIED="1668468748116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

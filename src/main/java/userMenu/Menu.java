@@ -3,6 +3,7 @@ package userMenu;
 import data.TouristAttractionsData;
 import data.UserData;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import static userMenu.AfterMenu.afterMenu;
@@ -16,7 +17,7 @@ public class Menu {
         return Integer.parseInt(userChoice.next());
     }
 
-    public static void wholeMenu(){
+    public static void wholeMenu() throws IOException {
         UserData database = new UserData();
         TouristAttractionsData ticketsDataBase = new TouristAttractionsData();
         startMenu(database);

@@ -2,6 +2,8 @@ package command;
 
 import data.UserData;
 
+import java.io.IOException;
+
 public class LogInCommand implements Command {
 
     UserData database;
@@ -11,7 +13,7 @@ public class LogInCommand implements Command {
     }
 
     @Override
-    public void execute() {
+    public void execute() throws IOException {
         database.logIn();
     }
 }

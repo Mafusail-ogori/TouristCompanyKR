@@ -1,4 +1,4 @@
-package touristAtraction;
+package touristAttraction;
 
 
 public class TouristTicket {

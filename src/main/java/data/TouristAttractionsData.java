@@ -1,15 +1,19 @@
 package data;
 
-import touristAtraction.TicketType;
-import touristAtraction.TouristTicket;
-import touristAtraction.TouristTicketTitle;
-import touristAtraction.TransportationType;
+import touristAttraction.TicketType;
+import touristAttraction.TouristTicket;
+import touristAttraction.TouristTicketTitle;
+import touristAttraction.TransportationType;
 
 import java.util.*;
 
 import static graphicsText.Graphics.*;
 
 public class TouristAttractionsData {
+
+    public List<TouristTicket> getTouristTickets() {
+        return touristTickets;
+    }
 
     List<TouristTicket> touristTickets = new ArrayList<>();
 
@@ -34,8 +38,7 @@ public class TouristAttractionsData {
     }
 
     public boolean isSame(String choice, boolean real) {
-        var check = choice.equalsIgnoreCase("yes");
-        return check == real;
+        return  choice.equalsIgnoreCase("yes") == real;
     }
 
     public boolean isSameTransport(String choice, TransportationType transportationType){

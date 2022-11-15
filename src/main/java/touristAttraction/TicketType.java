@@ -1,4 +1,4 @@
-package touristAtraction;
+package touristAttraction;
 
 import java.util.Random;
 public enum TicketType {

@@ -24,4 +24,9 @@ public class User {
         this.userName = userName;
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return nickName + " " + userName + " " + password;
+    }
 }
