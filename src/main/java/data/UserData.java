@@ -19,6 +19,15 @@ public class UserData {
 
     protected List<User> userData = new ArrayList<>();
 
+    public boolean findSameEmailAddress(String emailAddress){
+        for (User user: userData) {
+            if (user.getEmailAddress().equalsIgnoreCase(emailAddress)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean findSameNickName(String nickName) {
         for (User user : userData) {
             if (user.getNickName().equalsIgnoreCase(nickName)) {
@@ -41,7 +50,7 @@ public class UserData {
         FileWriter record = new FileWriter("C:\\Users\\Danylo\\PP labs\\untitled\\src\\main\\resources\\signUpRecords.txt", true);
         System.out.println(signUpText);
         Scanner scanner = new Scanner(System.in);
-        String nickName, userName, password;
+        String nickName, userName, password, emailAddress;
         System.out.print("Enter nickname >> ");
         nickName = scanner.next();
         if (!findSameNickName(nickName)){
@@ -52,7 +61,10 @@ public class UserData {
             System.out.print("Enter password >> ");
             password = scanner.next();
             record.append(password).append("\n");
-            userData.add(new User(nickName, userName, password));
+            System.out.println("Enter your emailAddress");
+            emailAddress = scanner.next();
+            record.append(emailAddress).append("\n");
+            userData.add(new User(nickName, userName, password, emailAddress));
         }
         else{
             System.out.println("This username is taken already!");
@@ -60,9 +72,9 @@ public class UserData {
         }
         record.close();
     }
-    public User findUser(String nickname, String password){
+    public User findUser(String userInput, String password){
         for (var user : userData) {
-            if (user.getNickName().equalsIgnoreCase(nickname) && user.getPassword().equals(password)){
+            if ((user.getNickName().equalsIgnoreCase(userInput) || user.getEmailAddress().equalsIgnoreCase(userInput)) && user.getPassword().equals(password)){
                 return user;
             }
         }
@@ -96,6 +108,7 @@ public class UserData {
                 recordings.remove(i);
                 recordings.remove(i);
                 recordings.remove(i);
+                recordings.remove(i);
             }
         }
         for (var recording : recordings) {
@@ -109,14 +122,14 @@ public class UserData {
     public void deleteAccount() throws IOException {
         System.out.println(deleteAccountText);
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter user name of account you want to delete >> ");
-        String nickname = scanner.next();
-        if(findSameNickName(nickname) && accountExistsInFile(nickname)){
+        System.out.print("Enter user name, or email address of account you want to delete >> ");
+        String userInput = scanner.next();
+        if((findSameNickName(userInput) || findSameEmailAddress(userInput)) && accountExistsInFile(userInput)){
             System.out.print("Enter password >> ");
             String password = scanner.next();
             if (findPassword(password)){
-                this.userData.remove(findUser(nickname, password));
-                deleteFromFile(nickname);
+                this.userData.remove(findUser(userInput, password));
+                deleteFromFile(userInput);
                 System.out.println("Deleted successfully!");
             }
             else{
@@ -130,11 +143,11 @@ public class UserData {
 
     public void logIn() throws IOException {
         System.out.println(logInText);
-        String nickName, password;
+        String userInput, password;
         var scanner = new Scanner(System.in);
-        System.out.print("Enter nickname >> ");
-        nickName = scanner.next();
-        if(findSameNickName(nickName)){
+        System.out.print("Enter nickname or email address >> ");
+        userInput = scanner.next();
+        if(findSameNickName(userInput) || findSameEmailAddress(userInput)){
             System.out.print("Enter password >> ");
             password = scanner.next();
             if(findPassword(password)){
@@ -155,7 +168,7 @@ public class UserData {
         FileReader getAccounts = new FileReader("C:\\Users\\Danylo\\PP labs\\untitled\\src\\main\\resources\\signUpRecords.txt");
         Scanner scanner = new Scanner(getAccounts);
         while(scanner.hasNext()){
-            userData.add(new User(scanner.nextLine(), scanner.nextLine(), scanner.nextLine()));
+            userData.add(new User(scanner.nextLine(), scanner.nextLine(), scanner.nextLine(), scanner.nextLine()));
         }
         getAccounts.close();
     }

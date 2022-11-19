@@ -13,7 +13,7 @@ public class FindUserTest {
     UserData userData = new UserData();
 
     @Mock
-    User user = new User("mafusaillo", "dan", "haha");
+    User user = new User("mafusaillo", "dan", "haha", "dpo.prots@gmail.com");
 
 
     @Test
@@ -21,5 +21,6 @@ public class FindUserTest {
     public void finUserTest(){
         userData.getUserData().add(user);
         assertEquals(user, userData.findUser("mafusaillo" , "haha"));
+        assertEquals(user, userData.findUser("dpo.prots@gmail.com", "haha"));
     }
 }
