@@ -1,11 +1,9 @@
 package user;
 
-import command.Command;
-
 public class User {
     public User(String userName, String nickName, String password, String emailAddress) {
-        this.userName = userName;
         this.nickName = nickName;
+        this.userName = userName;
         this.password = password;
         this.emailAddress = emailAddress;
     }
@@ -23,8 +21,6 @@ public class User {
     protected String nickName;
     protected String password;
     protected String emailAddress;
-
-
 
     @Override
     public String toString() {

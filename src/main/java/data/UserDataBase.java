@@ -1,9 +1,9 @@
 package data;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import user.User;
+
+import java.sql.*;
+import java.util.List;
 
 public class UserDataBase {
     Connection connection;
@@ -31,5 +31,19 @@ public class UserDataBase {
 
         }
     }
-}
 
+    public void getDatabaseUsers(List<User> userData){
+        try{
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("select nickname, realname, password, emailaddress from userinfo");
+            while(resultSet.next()){
+                userData.add(new User(resultSet.getString("nickname"),resultSet.getString("realname") ,
+                        resultSet.getString("password"), resultSet.getString("emailaddress")));
+            }
+
+        } catch (SQLException exception) {
+            System.out.println("Connection to database failed, contact help");
+            exception.printStackTrace();
+        }
+    }
+}

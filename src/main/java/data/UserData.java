@@ -96,6 +96,7 @@ public class UserData {
     }
 
     public void logIn() throws IOException {
+        new UserDataBase().getDatabaseUsers(userData);
         System.out.println(logInText);
         String userInput, password;
         var scanner = new Scanner(System.in);
