@@ -35,7 +35,7 @@ public class UserDataBase {
     public void getDatabaseUsers(List<User> userData){
         try{
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select nickname, realname, password, emailaddress from userinfo");
+            ResultSet resultSet = statement.executeQuery(String.format("select nickname, realname, password, emailaddress from userinfo"));
             while(resultSet.next()){
                 userData.add(new User(resultSet.getString("nickname"),resultSet.getString("realname") ,
                         resultSet.getString("password"), resultSet.getString("emailaddress")));
