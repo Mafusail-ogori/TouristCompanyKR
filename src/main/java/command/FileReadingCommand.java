@@ -14,6 +14,5 @@ public class FileReadingCommand implements Command {
 
     @Override
     public void execute() throws IOException {
-        database.fileReading();
     }
 }

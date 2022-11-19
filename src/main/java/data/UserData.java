@@ -2,10 +2,8 @@
 package data;
 
 import user.User;
-
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -19,9 +17,9 @@ public class UserData {
 
     protected List<User> userData = new ArrayList<>();
 
-    public boolean findSameEmailAddress(String emailAddress){
-        for (User user: userData) {
-            if (user.getEmailAddress().equalsIgnoreCase(emailAddress)){
+    public boolean findSameEmailAddress(String emailAddress) {
+        for (User user : userData) {
+            if (user.getEmailAddress().equalsIgnoreCase(emailAddress)) {
                 return true;
             }
         }
@@ -37,106 +35,79 @@ public class UserData {
         return false;
     }
 
-    public boolean findPassword(String password){
-        for (User user : userData){
-            if(user.getPassword().equals(password)){
+    public boolean findPassword(String password) {
+        for (User user : userData) {
+            if (user.getPassword().equals(password)) {
                 return true;
             }
         }
         return false;
     }
 
+    public void readUsersFromDatabase(){
+        Statement statement;
+        ResultSet resultSet;
+        try{
+
+        }
+    }
+
     public void signUp() throws IOException {
-        FileWriter record = new FileWriter("C:\\Users\\Danylo\\PP labs\\untitled\\src\\main\\resources\\signUpRecords.txt", true);
         System.out.println(signUpText);
         Scanner scanner = new Scanner(System.in);
         String nickName, userName, password, emailAddress;
         System.out.print("Enter nickname >> ");
         nickName = scanner.next();
-        if (!findSameNickName(nickName)){
-            record.append(nickName).append("\n");
+        if (!findSameNickName(nickName)) {
             System.out.print("Enter your name >> ");
             userName = scanner.next();
-            record.append(userName).append("\n");
             System.out.print("Enter password >> ");
             password = scanner.next();
-            record.append(password).append("\n");
-            System.out.println("Enter your emailAddress");
+            System.out.print("Enter your email address >> ");
             emailAddress = scanner.next();
-            record.append(emailAddress).append("\n");
             userData.add(new User(nickName, userName, password, emailAddress));
-        }
-        else{
+            try {
+                Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/TouristCompanyDatabase",
+                        "postgres",
+                        "Hajaomija123");
+                Statement statement = connection.createStatement();
+                statement.executeUpdate(String.format("insert into userinfo (nickname, realname, password, emailaddress) values ('%s', '%s', '%s', '%s')", nickName, userName, password, emailAddress));
+                connection.close();
+            } catch (SQLException exception) {
+                System.out.println("Connection to database failed, contact help");
+                exception.printStackTrace();
+            }
+
+        } else {
             System.out.println("This username is taken already!");
             signUp();
         }
-        record.close();
     }
-    public User findUser(String userInput, String password){
+
+    public User findUser(String userInput, String password) {
         for (var user : userData) {
-            if ((user.getNickName().equalsIgnoreCase(userInput) || user.getEmailAddress().equalsIgnoreCase(userInput)) && user.getPassword().equals(password)){
+            if ((user.getNickName().equalsIgnoreCase(userInput) || user.getEmailAddress().equalsIgnoreCase(userInput)) && user.getPassword().equals(password)) {
                 return user;
             }
         }
         return null;
     }
 
-    public boolean accountExistsInFile(String userName) throws IOException {
-        FileReader fileReader = new FileReader("C:\\Users\\Danylo\\PP labs\\untitled\\src\\main\\resources\\signUpRecords.txt");
-        Scanner scanner = new Scanner(fileReader);
-        while (scanner.hasNext()){
-            if(scanner.nextLine().equalsIgnoreCase(userName)){
-                return true;
-            }
-        }
-        fileReader.close();
-        return false;
-    }
-
-    public void deleteFromFile(String userName) throws IOException {
-        FileReader fileReader = new FileReader("C:\\Users\\Danylo\\PP labs\\untitled\\src\\main\\resources\\signUpRecords.txt");
-        FileWriter fileWriter2 = new FileWriter("C:\\Users\\Danylo\\PP labs\\untitled\\src\\main\\resources\\signUpRecords.txt", true);
-        List<String> recordings = new ArrayList<>();
-        Scanner scanner = new Scanner(fileReader);
-        while (scanner.hasNext()){
-            recordings.add(scanner.next());
-        }
-        FileWriter fileWriter = new FileWriter("C:\\Users\\Danylo\\PP labs\\untitled\\src\\main\\resources\\signUpRecords.txt");
-        fileWriter.close();
-        for (var i = 0; i < recordings.size(); i++) {
-            if(recordings.get(i).equalsIgnoreCase(userName)){
-                recordings.remove(i);
-                recordings.remove(i);
-                recordings.remove(i);
-                recordings.remove(i);
-            }
-        }
-        for (var recording : recordings) {
-            fileWriter2.append(recording).append("\n");
-        }
-        fileReader.close();
-        fileWriter2.close();
-    }
-
-
     public void deleteAccount() throws IOException {
         System.out.println(deleteAccountText);
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter user name, or email address of account you want to delete >> ");
         String userInput = scanner.next();
-        if((findSameNickName(userInput) || findSameEmailAddress(userInput)) && accountExistsInFile(userInput)){
+        if ((findSameNickName(userInput) || findSameEmailAddress(userInput))) {
             System.out.print("Enter password >> ");
             String password = scanner.next();
-            if (findPassword(password)){
+            if (findPassword(password)) {
                 this.userData.remove(findUser(userInput, password));
-                deleteFromFile(userInput);
                 System.out.println("Deleted successfully!");
-            }
-            else{
+            } else {
                 System.out.println("Incorrect password");
             }
-        }
-        else{
+        } else {
             System.out.println("There is no such account in a storage!");
         }
     }
@@ -147,29 +118,18 @@ public class UserData {
         var scanner = new Scanner(System.in);
         System.out.print("Enter nickname or email address >> ");
         userInput = scanner.next();
-        if(findSameNickName(userInput) || findSameEmailAddress(userInput)){
+        if (findSameNickName(userInput) || findSameEmailAddress(userInput)) {
             System.out.print("Enter password >> ");
             password = scanner.next();
-            if(findPassword(password)){
+            if (findPassword(password)) {
                 System.out.println("Logged in successfully!");
-            }
-            else{
+            } else {
                 System.out.println("Incorrect password! try again!");
                 logIn();
             }
-        }
-        else{
+        } else {
             System.out.println("Looks like you are not registered yet, sign up first!");
             signUp();
         }
-    }
-
-    public void fileReading() throws IOException {
-        FileReader getAccounts = new FileReader("C:\\Users\\Danylo\\PP labs\\untitled\\src\\main\\resources\\signUpRecords.txt");
-        Scanner scanner = new Scanner(getAccounts);
-        while(scanner.hasNext()){
-            userData.add(new User(scanner.nextLine(), scanner.nextLine(), scanner.nextLine(), scanner.nextLine()));
-        }
-        getAccounts.close();
     }
 }
