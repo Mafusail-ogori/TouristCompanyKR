@@ -1,9 +1,9 @@
 package data;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import touristAttraction.TouristTicket;
+
+import java.sql.*;
+import java.util.List;
 import java.util.Locale;
 
 public class TouristAttractionDataBase {
@@ -38,6 +38,16 @@ public class TouristAttractionDataBase {
             System.out.println("Connection to database failed, contact help");
             exception.printStackTrace();
         }
+    }
 
+    public void readFromDataBase(List<TouristTicket> touristTicketList){
+        try{
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.exe
+
+        }catch (SQLException exception) {
+            System.out.println("Connection to database failed, contact help");
+            exception.printStackTrace();
+        }
     }
 }

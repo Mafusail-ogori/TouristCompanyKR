@@ -7,8 +7,6 @@
     <list default="true" id="f4520111-a99f-4295-9256-28ee56814f72" name="Changes" comment="TouristCompany">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/data/TouristAttractionDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/TouristAttractionDataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/TouristAttractionsData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/TouristAttractionsData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/userMenu/MenuCaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/userMenu/MenuCaller.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +174,7 @@
       <workItem from="1668790970186" duration="1248000" />
       <workItem from="1668800462995" duration="2553000" />
       <workItem from="1668850429903" duration="1331000" />
-      <workItem from="1668852051074" duration="13234000" />
+      <workItem from="1668852051074" duration="15062000" />
     </task>
     <task id="LOCAL-00001" summary="ComplexLab">
       <created>1667071978258</created>
@@ -227,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668865170418</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="TouristCompany">
+      <created>1668867971609</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668867971609</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
