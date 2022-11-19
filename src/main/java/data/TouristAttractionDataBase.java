@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Locale;
 
 public class TouristAttractionDataBase {
     Connection connection;
@@ -20,10 +21,19 @@ public class TouristAttractionDataBase {
         }
     }
 
-    public void addToDataBase(){
+    public void addToDataBase(String title, int period, int peopleAmount, String hasChild, String hasAnimal,
+                              String needNoiseReduction, String includesParty, String ticketType, double price,
+                              int hotelRating, String transportationType){
         try {
             Statement statement = connection.createStatement();
-
+            statement.executeUpdate(String.format(Locale.US,"insert into touristattraction(title, period, " +
+                    "peopleamount, haschild, " +
+                    "hasanimal, neednoisereduction, includesparty, tickettype, price, hotelrating, " +
+                    "transportationtype)" +
+                    "values ('%s', '%d', '%d', '%s', '%s', '%s', '%s', '%s', '%f', '%d', '%s')", title, period,
+                    peopleAmount, hasChild, hasAnimal, needNoiseReduction, includesParty, ticketType,
+                    price, hotelRating, transportationType));
+            connection.close();
         } catch (SQLException exception) {
             System.out.println("Connection to database failed, contact help");
             exception.printStackTrace();

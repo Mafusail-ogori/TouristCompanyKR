@@ -21,10 +21,10 @@ public class TouristAttractionsData {
     public void touristTicketGenerator() {
         Random random = new Random();
         for (var i = 0; i < 4000; i++) {
-            this.touristTickets.add(new TouristTicket(TouristTicketTitle.getRandomTitle(), random.nextInt(3, 28),
-                    random.nextInt(1, 11), random.nextBoolean(),
-                    random.nextBoolean(), random.nextBoolean(), random.nextBoolean(), TicketType.getTicketType(),
-                    random.nextDouble(250.5, 12000), random.nextInt(1, 6), TransportationType.getRandomTransport()));
+            new TouristAttractionDataBase().addToDataBase(TouristTicketTitle.getRandomTitle().toString(), random.nextInt(3, 28),
+                    random.nextInt(1, 11), String.valueOf(random.nextBoolean()),
+                    String.valueOf(random.nextBoolean()), String.valueOf(random.nextBoolean()), String.valueOf(random.nextBoolean()), TicketType.getTicketType().toString(),
+                    random.nextDouble(250.5, 12000), random.nextInt(1, 6), TransportationType.getRandomTransport().toString());
         }
     }
 
