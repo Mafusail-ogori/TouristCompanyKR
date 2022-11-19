@@ -6,6 +6,10 @@ import java.sql.*;
 import java.util.List;
 import java.util.Locale;
 
+import static touristAttraction.TicketType.getSameTicketType;
+import static touristAttraction.TouristTicketTitle.getSameTicketTitle;
+import static touristAttraction.TransportationType.getSameTransport;
+
 public class TouristAttractionDataBase {
     Connection connection;
 
@@ -48,16 +52,16 @@ public class TouristAttractionDataBase {
                     "from touristattraction"));
             while(resultSet.next()){
                 touristTicketList.add(new TouristTicket(
-                        resultSet.getString("title"),
+                        getSameTicketTitle(resultSet.getString("title")),
                         resultSet.getInt("period"), resultSet.getInt("peopleamount"),
                         Boolean.parseBoolean(resultSet.getString("haschild")),
                         Boolean.parseBoolean(resultSet.getString("hasanimal")),
                         Boolean.parseBoolean(resultSet.getString("neednoisereduction")),
                         Boolean.parseBoolean(resultSet.getString("includesparty")),
-                        resultSet.getString("tickettype"),
+                        getSameTicketType(resultSet.getString("tickettype")),
                         resultSet.getDouble("price"),
                         resultSet.getInt("hotelrating"),
-                        resultSet.getString("transportationtype")));
+                        getSameTransport(resultSet.getString("transportationtype"))));
             }
 
         }catch (SQLException exception) {

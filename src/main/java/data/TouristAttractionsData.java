@@ -30,6 +30,7 @@ public class TouristAttractionsData {
 
     public void showAll() {
         System.out.println(allPorposalsText);
+        new TouristAttractionDataBase().getFromDataBase(touristTickets);
         System.out.println(upperBound);
         for (var ticket : this.touristTickets) {
             System.out.println(ticket);

@@ -19,7 +19,7 @@ public class AfterMenu {
         afterMenuCommand.put(3, new LogOutCommand());
         var choice = 0;
         while(choice != 3){
-            new GenerateTicketsCommand(ticketsDataBase).execute();
+
             sortMenu(ticketsDataBase);
             System.out.println(finalMenuText);
             choice = userChoice();
