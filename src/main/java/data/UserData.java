@@ -44,14 +44,6 @@ public class UserData {
         return false;
     }
 
-    public void readUsersFromDatabase(){
-        Statement statement;
-        ResultSet resultSet;
-        try{
-
-        }
-    }
-
     public void signUp() throws IOException {
         System.out.println(signUpText);
         Scanner scanner = new Scanner(System.in);
@@ -66,17 +58,7 @@ public class UserData {
             System.out.print("Enter your email address >> ");
             emailAddress = scanner.next();
             userData.add(new User(nickName, userName, password, emailAddress));
-            try {
-                Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/TouristCompanyDatabase",
-                        "postgres",
-                        "Hajaomija123");
-                Statement statement = connection.createStatement();
-                statement.executeUpdate(String.format("insert into userinfo (nickname, realname, password, emailaddress) values ('%s', '%s', '%s', '%s')", nickName, userName, password, emailAddress));
-                connection.close();
-            } catch (SQLException exception) {
-                System.out.println("Connection to database failed, contact help");
-                exception.printStackTrace();
-            }
+            new UserDataBase().signUpUser(nickName,userName, password,emailAddress);
 
         } else {
             System.out.println("This username is taken already!");
