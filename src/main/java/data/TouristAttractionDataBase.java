@@ -40,10 +40,25 @@ public class TouristAttractionDataBase {
         }
     }
 
-    public void readFromDataBase(List<TouristTicket> touristTicketList){
+    public void getFromDataBase(List<TouristTicket> touristTicketList){
         try{
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.exe
+            ResultSet resultSet = statement.executeQuery(String.format("select title, period, peopleamount, haschild, " +
+                    "hasanimal, neednoisereduction, includesparty, tickettype, price, hotelrating, transportationtype " +
+                    "from touristattraction"));
+            while(resultSet.next()){
+                touristTicketList.add(new TouristTicket(
+                        resultSet.getString("title"),
+                        resultSet.getInt("period"), resultSet.getInt("peopleamount"),
+                        Boolean.parseBoolean(resultSet.getString("haschild")),
+                        Boolean.parseBoolean(resultSet.getString("hasanimal")),
+                        Boolean.parseBoolean(resultSet.getString("neednoisereduction")),
+                        Boolean.parseBoolean(resultSet.getString("includesparty")),
+                        resultSet.getString("tickettype"),
+                        resultSet.getDouble("price"),
+                        resultSet.getInt("hotelrating"),
+                        resultSet.getString("transportationtype")));
+            }
 
         }catch (SQLException exception) {
             System.out.println("Connection to database failed, contact help");
