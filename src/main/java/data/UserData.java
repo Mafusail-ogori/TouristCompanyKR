@@ -58,7 +58,8 @@ public class UserData {
             System.out.print("Enter your email address >> ");
             emailAddress = scanner.next();
             userData.add(new User(nickName, userName, password, emailAddress));
-            new UserDataBase().signUpUser(nickName,userName, password,emailAddress);
+            UserDataBase userDataBase = new UserDataBase();
+            userDataBase.signUpUser(nickName, userName, password, emailAddress);
 
         } else {
             System.out.println("This username is taken already!");

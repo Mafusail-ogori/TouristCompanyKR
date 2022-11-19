@@ -10,7 +10,7 @@ public class UserDataBase {
 
     public UserDataBase() {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/TouristCompanyDatabase",
+            connection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/TouristCompanyDatabase",
                     "postgres",
                     "Hajaomija123");
         } catch (SQLException exception) {
