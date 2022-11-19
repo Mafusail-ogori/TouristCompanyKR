@@ -28,7 +28,6 @@ public class UserDataBase {
         } catch (SQLException exception) {
             System.out.println("Connection to database failed, contact help");
             exception.printStackTrace();
-
         }
     }
 
@@ -42,6 +41,30 @@ public class UserDataBase {
             }
 
         } catch (SQLException exception) {
+            System.out.println("Connection to database failed, contact help");
+            exception.printStackTrace();
+        }
+    }
+
+    public boolean existsInDatabase(String userInput, String password){
+        try{
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(String.format("select * from userinfo where emailaddress = '%s' and password = '%s'", userInput, password));
+            resultSet.next();
+            return resultSet.getString("nickname") != null;
+        }catch (SQLException exception){
+            System.out.println("Connection to database failed, contact help");
+            exception.printStackTrace();
+        }
+        return false;
+    }
+
+    public void deleteFromDatabase(String userInput, String password){
+        try{
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(String.format("delete from userinfo where emailaddress = '%s' and password = '%s'", userInput, password));
+            connection.close();
+        }catch (SQLException exception){
             System.out.println("Connection to database failed, contact help");
             exception.printStackTrace();
         }

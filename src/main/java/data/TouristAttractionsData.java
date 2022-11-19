@@ -18,7 +18,7 @@ public class TouristAttractionsData {
     List<TouristTicket> touristTickets = new ArrayList<>();
 
 
-    public void touristTicketGenerator() {
+    public static void touristTicketGenerator() {
         Random random = new Random();
         for (var i = 0; i < 4000; i++) {
             new TouristAttractionDataBase().addToDataBase(TouristTicketTitle.getRandomTitle().toString(), random.nextInt(3, 28),

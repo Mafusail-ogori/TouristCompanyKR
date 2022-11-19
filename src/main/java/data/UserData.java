@@ -77,6 +77,8 @@ public class UserData {
     }
 
     public void deleteAccount() throws IOException {
+        UserDataBase userDataBase = new UserDataBase();
+        userDataBase.getDatabaseUsers(userData);
         System.out.println(deleteAccountText);
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter user name, or email address of account you want to delete >> ");
@@ -84,8 +86,9 @@ public class UserData {
         if ((findSameNickName(userInput) || findSameEmailAddress(userInput))) {
             System.out.print("Enter password >> ");
             String password = scanner.next();
-            if (findPassword(password)) {
+            if (findPassword(password) && userDataBase.existsInDatabase(findUser(userInput, password).getEmailAddress(), password)) {
                 this.userData.remove(findUser(userInput, password));
+                userDataBase.deleteFromDatabase(findUser(userInput, password).getEmailAddress(), password);
                 System.out.println("Deleted successfully!");
             } else {
                 System.out.println("Incorrect password");
