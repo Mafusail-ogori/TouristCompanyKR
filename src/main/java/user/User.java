@@ -1,7 +1,7 @@
 package user;
 
 public class User {
-    public User(String userName, String nickName, String password, String emailAddress) {
+    public User(String nickName, String userName, String password, String emailAddress) {
         this.nickName = nickName;
         this.userName = userName;
         this.password = password;
