@@ -21,7 +21,6 @@ public class StartMenu {
         var choice = 0;
         while(choice != 1){
             choice = userChoice();
-            new FileReadingCommand(database).execute();
             menuCommands.get(choice).execute();
         }
     }

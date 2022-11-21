@@ -45,6 +45,7 @@ public class UserData {
     }
 
     public void signUp() throws IOException {
+        UserDataBase userDataBase = new UserDataBase();
         System.out.println(signUpText);
         Scanner scanner = new Scanner(System.in);
         String nickName, userName, password, emailAddress;
@@ -58,7 +59,6 @@ public class UserData {
             System.out.print("Enter your email address >> ");
             emailAddress = scanner.next();
             userData.add(new User(nickName, userName, password, emailAddress));
-            UserDataBase userDataBase = new UserDataBase();
             userDataBase.signUpUser(nickName, userName, password, emailAddress);
 
         } else {
@@ -78,7 +78,6 @@ public class UserData {
 
     public void deleteAccount() throws IOException {
         UserDataBase userDataBase = new UserDataBase();
-        userDataBase.getDatabaseUsers(userData);
         System.out.println(deleteAccountText);
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter user name, or email address of account you want to delete >> ");
@@ -87,8 +86,8 @@ public class UserData {
             System.out.print("Enter password >> ");
             String password = scanner.next();
             if (findPassword(password) && userDataBase.existsInDatabase(findUser(userInput, password).getEmailAddress(), password)) {
-                this.userData.remove(findUser(userInput, password));
                 userDataBase.deleteFromDatabase(findUser(userInput, password).getEmailAddress(), password);
+                this.userData.remove(findUser(userInput, password));
                 System.out.println("Deleted successfully!");
             } else {
                 System.out.println("Incorrect password");
@@ -99,7 +98,6 @@ public class UserData {
     }
 
     public void logIn() throws IOException {
-        new UserDataBase().getDatabaseUsers(userData);
         System.out.println(logInText);
         String userInput, password;
         var scanner = new Scanner(System.in);

@@ -50,8 +50,7 @@ public class UserDataBase {
         try{
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(String.format("select * from userinfo where emailaddress = '%s' and password = '%s'", userInput, password));
-            resultSet.next();
-            return resultSet.getString("nickname") != null;
+            return resultSet.next();
         }catch (SQLException exception){
             System.out.println("Connection to database failed, contact help");
             exception.printStackTrace();
